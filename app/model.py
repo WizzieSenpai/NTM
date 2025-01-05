@@ -32,7 +32,7 @@ def create_seq2seq_model(eng_vocab_size, fr_vocab_size, embedding_dim, lstm_unit
     decoder_outputs = decoder_dense(decoder_outputs)
     
     # Create and compile model
-    model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
+    model = Model([encoder_inputs, decoder_inputs], decoder_outputs)``
     model.compile(
         optimizer='adam',
         loss='sparse_categorical_crossentropy',

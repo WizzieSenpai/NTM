@@ -1,5 +1,5 @@
 import gradio as gr
-from flask import Flask
+from flask import Flask, jsonify, request
 from preprocessing import TextPreprocessor
 from translation import Translator
 from pathlib import Path
@@ -27,21 +27,23 @@ def translate_text(text):
     except Exception as e:
         return f"Error: {str(e)}"
 
-interface = gr.Interface(
-    fn=translate_text,
-    inputs=gr.Textbox(label="Enter English text"),
-    outputs=gr.Textbox(label="French translation"),
-    title="English to French Translator",
-    description="Enter English text to get its French translation"
-)
 
 # Flask route for health check
 @app.route('/health')
 def health():
     return {'status': 'healthy'}, 200
 
-# Mount Gradio app to Flask
-app = gr.mount_gradio_app(app, interface, path="/")
+# Flask route for translating the text and communicating with the model
+
+@app.route('/', methods=['POST'])
+def translate():
+    """Translate the word in an endpoint"""
+    data = request.json
+    if 'text' in data:
+        translated = translate_text(data['text'])
+        return jsonify({"received_data": translated})
+    else:
+        return jsonify({"error": "No 'text' field found in request"}), 400
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=7860)
+    app.run(host='0.0.0.0', port=5000)

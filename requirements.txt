@@ -1,19 +1,20 @@
 # Core ML Libraries
-tensorflow==2.10.1
-keras==2.10.0
-numpy>=1.21.6,<2.0.0
-h5py==3.8.0
+tensorflow-macos
+keras
+numpy
+h5py
 
 # Web Framework and Interface
-flask==2.2.5
-gradio==3.50.2
-werkzeug==2.2.3
+flask
+gradio
+werkzeug
 
 # Utility Libraries
-pandas==2.0.3
-scikit-learn==1.2.2
-protobuf==3.19.6
-pillow==9.5.0
+pandas
+scikit-learn
+protobuf
+pillow
 
 # WSGI Server
-gunicorn==21.2.0
+gunicorn
+

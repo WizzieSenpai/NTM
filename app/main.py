@@ -1,4 +1,3 @@
-import gradio as gr
 from flask import Flask, jsonify, request
 from preprocessing import TextPreprocessor
 from translation import Translator
@@ -46,4 +45,4 @@ def translate():
         return jsonify({"error": "No 'text' field found in request"}), 400
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='localhost', port=5000)

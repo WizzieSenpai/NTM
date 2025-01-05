@@ -1,7 +1,7 @@
 import gradio as gr
 import requests
 
-url = 'http://0.0.0.0:5000'
+url = 'http://localhost:5000'
 
 def send_to_api(translate_text: str) -> str:
     """A function to send a request to the api end point to translate text"""

@@ -1,5 +1,5 @@
 # Core ML Libraries
-tensorflow-macos
+tensorflow
 keras
 numpy
 h5py
